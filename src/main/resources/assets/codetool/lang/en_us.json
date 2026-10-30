@@ -1,0 +1,13 @@
+{
+  "itemGroup.codetool": "Example Mod Tab",
+  "block.codetool.example_block": "Example Block",
+  "item.codetool.example_item": "Example Item",
+
+  "codetool.configuration.title": "Code Tool Configs",
+  "codetool.configuration.section.codetool.common.toml": "Code Tool Configs",
+  "codetool.configuration.section.codetool.common.toml.title": "Code Tool Configs",
+  "codetool.configuration.items": "Item List",
+  "codetool.configuration.logDirtBlock": "Log Dirt Block",
+  "codetool.configuration.magicNumberIntroduction": "Magic Number Text",
+  "codetool.configuration.magicNumber": "Magic Number"
+}

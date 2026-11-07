@@ -142,7 +142,15 @@ dependencies {
 
     implementation "com.lowdragmc.ldlib2:ldlib2-neoforge-${minecraft_version}:${ldlib2_version}:all"
 
-    implementation "com.github.jumper-lang:jumper:${jumper_version}"
+    // Jumper is a plain Java library (no META-INF/neoforge.mods.toml, no FMLModType
+    // in its manifest). On Minecraft 1.21.1 FML only loads mods / FMLModType jars
+    // into the runtime module layer, so `implementation` alone puts Jumper on the
+    // compile classpath but not on the game's runtime classpath, which causes
+    // NoClassDefFoundError: me/padej/jumper/interp/Interpreter at run time.
+    // jarJar embeds it into the built mod jar, additionalRuntimeClasspath adds it
+    // to the dev runs (client/server/data).
+    jarJar(implementation("com.github.jumper-lang:jumper:${jumper_version}"))
+    additionalRuntimeClasspath "com.github.jumper-lang:jumper:${jumper_version}"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

@@ -1,6 +1,7 @@
 package com.artemy.codetool;
 
 import com.artemy.codetool.item.ModItems;
+import com.artemy.codetool.component.ModDataComponents;
 import com.lowdragmc.lowdraglib2.gui.ui.elements.codeeditor.language.LanguageDefinition;
 import com.lowdragmc.lowdraglib2.gui.ui.elements.codeeditor.language.TokenTypes;
 import org.slf4j.Logger;
@@ -45,6 +46,7 @@ public class CodeTool {
 
 
         // Register the Deferred Register to the mod event bus so items get registered
+        ModDataComponents.register(modEventBus);
         ModItems.register(modEventBus);
 
 

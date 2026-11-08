@@ -29,7 +29,7 @@ public class CodeToolClient {
         while (ModKeyMappings.EDIT_CODE_TOOL.get().consumeClick()) {
             assert Minecraft.getInstance().player != null;
             if(Minecraft.getInstance().player.getMainHandItem().is(ModItems.CODE_TOOL))
-                Minecraft.getInstance().setScreen(new EditCodeToolScreen());
+                Minecraft.getInstance().setScreen(new EditCodeToolScreen(Minecraft.getInstance().player.getMainHandItem()));
         }
     }
 }

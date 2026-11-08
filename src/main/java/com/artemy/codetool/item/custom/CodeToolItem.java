@@ -1,5 +1,6 @@
 package com.artemy.codetool.item.custom;
 
+import com.artemy.codetool.component.ModDataComponents;
 import me.padej.jumper.interp.Interpreter;
 import me.padej.jumper.interp.Script;
 import net.minecraft.world.InteractionHand;
@@ -25,17 +26,22 @@ public class CodeToolItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+        ItemStack stack =  player.getItemInHand(usedHand);
         if(level.isClientSide){
             System.out.println("TODO: use client");
         }else{
             System.out.println("TODO: use server");
             Interpreter  jumper = new Interpreter();
 
+
+
             Script script = jumper.script(
-                    "import net.minecraft.world.level.Level;import net.minecraft.core.BlockPos;import net.minecraft.world.level.block.Blocks;import net.minecraft.world.level.block.state.BlockState;\n" +
-                            "void test(Level level){level.setBlock(new BlockPos(0,100,0), Blocks.COBBLESTONE.defaultBlockState(),3);}");
+                    stack.get(ModDataComponents.CODE_TOOL).code());
             script.run();
-            script.invoke("test",level);
+            Object use = script.invoke("useServer", level, player, usedHand);
+            if(use instanceof InteractionResultHolder interactionResultHolder){
+                return interactionResultHolder;
+            }
         }
 
         return super.use(level, player, usedHand);

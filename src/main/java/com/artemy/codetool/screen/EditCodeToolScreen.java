@@ -56,7 +56,7 @@ public class EditCodeToolScreen extends Screen {
                                 }).layout(layout->layout.flex(1)),
                                 new Button().setText("Cancel").setOnClick(event-> Minecraft.getInstance().setScreen(null)).layout(layout->layout.flex(1))
                         )
-        ).layout(layout->layout.paddingAll(7).gapAll(5)).style(style -> style.background(Sprites.BORDER)); // set a background for the root element
+        ).layout(layout->layout.paddingAll(7).gapAll(5)).style(style -> style.background(Sprites.BORDER));
         var ui = UI.of(root);
         return ModularUI.of(ui);
     }

@@ -11,9 +11,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 
-// This class will not load on dedicated servers. Accessing client side code from here is safe.
+
 @Mod(value = CodeTool.MODID, dist = Dist.CLIENT)
-// You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
 @EventBusSubscriber(modid = CodeTool.MODID, value = Dist.CLIENT)
 public class CodeToolClient {
     public CodeToolClient(ModContainer container) {
@@ -24,7 +23,7 @@ public class CodeToolClient {
 
     }
 
-    @SubscribeEvent // on the game event bus only on the physical client
+    @SubscribeEvent
     public static void onClientTick(ClientTickEvent.Post event) {
         while (ModKeyMappings.EDIT_CODE_TOOL.get().consumeClick()) {
             assert Minecraft.getInstance().player != null;

@@ -30,10 +30,7 @@ public class CodeToolItem extends Item {
         if(level.isClientSide){
             System.out.println("TODO: use client");
         }else{
-            System.out.println("TODO: use server");
             Interpreter  jumper = new Interpreter();
-
-
 
             Script script = jumper.script(
                     stack.get(ModDataComponents.CODE_TOOL).code());

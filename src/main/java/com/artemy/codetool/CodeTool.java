@@ -28,7 +28,7 @@ public class CodeTool {
 
     public static final LanguageDefinition JUMPER_LANG = new LanguageDefinition("Jumper",
             List.of(
-                    TokenTypes.KEYWORD.createTokenType(List.of("dyn", "break", "case", "catch", "class", "const", "continue", "default", "do", "else", "enum", "false", "finally", "for", "if", "import", "var", "new", "null", "return", "super", "switch", "this", "throw", "true", "try", "void", "while", "with", "yield", "int", "float", "long", "double","short","char")),
+                    TokenTypes.KEYWORD.createTokenType(List.of("dyn", "break", "case", "catch", "class", "const", "continue", "default", "do", "else", "enum", "false", "finally", "for", "if", "import", "var", "new", "null", "return", "super", "switch", "this", "throw", "true", "try", "void", "while", "with", "yield", "int", "float", "long", "double","short","char","boolean")),
                     TokenTypes.IDENTIFIER,
                     TokenTypes.STRING,
                     TokenTypes.COMMENT,
